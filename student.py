@@ -29,9 +29,13 @@ def creat_report_card():
 
     if student_found is True:
         csv_data=pd.read_csv("marks.csv")
+        student_report_name=student_id
         for row in csv_data:
-            file=open("report_card.txt","w")
-            file.write(row)
+            file=open(student_id+".txt","a")
+            file.write(row+"\n")
+            
+            # file=open("report_card.txt","w")
+            # file.write(row)
 
         #file=open("Report_card.txt","w")
          #file.write()
