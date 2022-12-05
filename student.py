@@ -42,14 +42,11 @@ def display_menu():
     print(" Student Database Management System")
     print("---------------------------------------")
     print("1. Add New Student")
-    print("2. View Students")
-    print("3. Search Student")
-    print("4. Update Student")
-    print("5. Delete Student")
-    print("6. Quit")
-    print("7. Add Number")
-    print("8.Delete number")
-    print("9.Report card")
+    print("2. Update Student")
+    print("3. Delete Student")
+    print("4. Add Number")
+    print("5. Report Card")
+    
 
 def add_number():
     print("-------------------------")
@@ -117,7 +114,7 @@ def add_student():
     return
 
 
-def view_students():
+'''def view_students():
     global student_fields
     global student_database
 
@@ -135,9 +132,9 @@ def view_students():
             print("\n")
 
     input("Press any key to continue")
+'''
 
-
-def search_student():
+'''def search_student():
     global student_fields
     global student_database
 
@@ -158,7 +155,7 @@ def search_student():
         else:
             print("student_id No. not found in our database")
     input("Press any key to continue")
-
+'''
 
 def update_student():
     global student_fields
@@ -232,21 +229,16 @@ while True:
     choice = input("Enter your choice: ")
     if choice == '1':
         add_student()
+   
     elif choice == '2':
-        view_students()
-    elif choice == '3':
-        search_student()
-    elif choice == '4':
         update_student()
-    elif choice == '5':
+    elif choice == '3':
         delete_student()
-    elif choice=='6':
-        break    
-    elif choice=='7':
+       
+    elif choice=='4':
         add_number()
-    elif choice=='8':
-        delete_student_number()    
-    elif choice=='9':
+       
+    elif choice=='5':
         creat_report_card()
     else:
         break    
