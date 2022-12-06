@@ -7,14 +7,40 @@ student_database = 'students.csv'
 student_subject_database='marks.csv'
 
 def creat_report_card():
-
     global student_fields
-    global student_subject
     global student_subject_database
-
+    global student_database
+    global student_subject
+    
     print("--- Creat_report_card ---")
-    student_id = input("Enter student_id no. to make report card: ")
-    student_found = False
+    student_id= input("Enter student_id no. to make report card: ")
+    with open(student_subject_database, "r", encoding="utf-8") as f:
+        csv_data=csv.reader(f)
+        for row in csv_data:
+            if len(row) > 0:
+                if student_id==row[0]:
+                    file=open(student_id+".txt","a")
+                    for i in range(0,6,1):
+                          
+                        file.write(row[i]+"\n")
+
+                    
+                  
+                    break
+                    
+                    
+                   
+                   
+        else:
+            print("student_id No. not found in our database")
+    input("Press any key to continue")
+            # file=open("report_card.txt","w")
+            # file.write(row)
+
+        #file=open("Report_card.txt","w")
+         #file.write()
+          
+''' student_found = False
     updated_data = []
     with open(student_subject_database, "r", encoding="utf-8") as f:
         reader = csv.reader(f)
@@ -28,17 +54,8 @@ def creat_report_card():
                     student_found = True
 
     if student_found is True:
-        csv_data=pd.read_csv("marks.csv")
-        for row in csv_data:
-            file=open(student_id+".txt","a")
-            file.write(row+"\n")
-            
-            # file=open("report_card.txt","w")
-            # file.write(row)
-
-        #file=open("Report_card.txt","w")
-         #file.write()
-
+        '''
+     
 
 def display_menu():
     print("---------------------------------------")
