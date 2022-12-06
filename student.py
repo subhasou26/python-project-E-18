@@ -1,11 +1,23 @@
 import csv
 import pandas as pd
+import time
 
 student_fields = ['student_id', 'name', 'Class_roll_no','Batch_name']
 student_subject=[student_fields[0],'math','bengali','english','physics','chemistry']
 student_database = 'students.csv'
 student_subject_database='marks.csv'
+def creat_gread(student_id_gread):
+    global student_fields
+    global student_subject_database
+    global student_database
+    global student_subject
+    file=open(student_id_gread+".txt","r")
+    count=0
+    for line in file:
+        count=count+1
+        print(line)   
 
+    
 def creat_report_card():
     global student_fields
     global student_subject_database
@@ -25,7 +37,8 @@ def creat_report_card():
                         file.write(row[i]+"\n")
 
                     
-                  
+                    
+                    
                     break
                     
                     
@@ -33,7 +46,7 @@ def creat_report_card():
                    
         else:
             print("student_id No. not found in our database")
-    input("Press any key to continue")
+            input("Press any key to continue")
             # file=open("report_card.txt","w")
             # file.write(row)
 
