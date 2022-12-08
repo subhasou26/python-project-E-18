@@ -4,4 +4,5 @@ marks     Gread Persentage
 100          A      100%
 92          A      92%
 80          B      80%
+Your over all persentage is 88.4
 You are pass
