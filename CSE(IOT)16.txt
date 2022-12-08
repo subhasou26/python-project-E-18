@@ -1,6 +1,6 @@
-CSE(IOT)16
-90
-45
-65
-85
-92
+marks     Gread Persentage 
+90          A      90%
+92          A      92%
+97          A      97%
+90          A      90%
+82          B      82%

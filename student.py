@@ -1,28 +1,24 @@
 import csv
 import pandas as pd
 import time
-
+import linecache
 student_fields = ['student_id', 'name', 'Class_roll_no','Batch_name']
-student_subject=[student_fields[0],'math','bengali','english','physics','chemistry']
+student_subject=[student_fields[0],'bengali','english','math','physics','chemistry']
+
 student_database = 'students.csv'
 student_subject_database='marks.csv'
-def creat_gread(student_id_gread):
-    global student_fields
-    global student_subject_database
-    global student_database
-    global student_subject
-    file=open(student_id_gread+".txt","r")
-    count=0
-    for line in file:
-        count=count+1
-        print(line)   
 
-    
+          
+
+
+ 
 def creat_report_card():
     global student_fields
     global student_subject_database
     global student_database
     global student_subject
+
+     
     
     print("--- Creat_report_card ---")
     student_id= input("Enter student_id no. to make report card: ")
@@ -32,10 +28,26 @@ def creat_report_card():
             if len(row) > 0:
                 if student_id==row[0]:
                     file=open(student_id+".txt","a")
-                    for i in range(0,6,1):
-                          
-                        file.write(row[i]+"\n")
-
+                    file.write("marks"+"     Gread"+" Persentage "+"\n")
+                    i=1
+                    for i in range(1,6,1):
+                        s="SUBHA"
+                        y=int(row[i])
+                        if(y>=90):
+                            
+                            file.write(row[i]+"          A      "+row[i]+"%"+"\n")
+                        elif(y>=80):
+                            file.write(row[i]+"          B      "+row[i]+"%"+"\n")
+                        elif(y>=70):
+                            file.write(row[i]+"          C      "+row[i]+"%"+"\n")
+                        elif(y>=60):
+                            file.write(row[i]+"          D      "+row[i]+"%"+"\n")
+                        elif(y>=50):
+                            file.write(row[i]+"          E      "+row[i]+"%"+"\n")
+                        else:
+                            
+                            file.write(row[i]+"          F      "+row[i]+"%"+"\n")
+                            
                     
                     
                     
@@ -272,7 +284,7 @@ while True:
         add_number()
        
     elif choice=='5':
-        creat_report_card()
+       creat_report_card()
     else:
         break    
 
