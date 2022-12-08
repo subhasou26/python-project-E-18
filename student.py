@@ -42,7 +42,8 @@ def total_number(student_id):
         file.write("Your over all persentage is "+persentage+"\n")
         if ((count/5) <= 40):
             file.write("Sorry You are fail")
-        file.write("You are pass")
+        else:    
+            file.write("You are pass")
 
 
 def creat_report_card(student_id):

@@ -1,0 +1,8 @@
+marks     Gread Persentage 
+30          F      30%
+20          F      20%
+32          F      32%
+21          F      21%
+22          F      22%
+Your over all persentage is 25.0
+Sorry You are fail
