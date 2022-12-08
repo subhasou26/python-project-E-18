@@ -1,27 +1,50 @@
 import csv
 import pandas as pd
-import time
-import linecache
 student_fields = ['student_id', 'name', 'Class_roll_no','Batch_name']
 student_subject=[student_fields[0],'bengali','english','math','physics','chemistry']
 
 student_database = 'students.csv'
 student_subject_database='marks.csv'
 
-          
+def number_report():
+     global student_fields
+     global student_subject_database
+     global student_database
+     global student_subject
+     print("--- Creat_report_card ---")
+     student_id= input("Enter student_id no. to make report card: ")
+     creat_report_card(student_id)
+     total_number(student_id)
 
 
- 
-def creat_report_card():
+     
+
+def total_number(student_id):
     global student_fields
     global student_subject_database
     global student_database
     global student_subject
-
-     
-    
-    print("--- Creat_report_card ---")
-    student_id= input("Enter student_id no. to make report card: ")
+    with open(student_subject_database, "r", encoding="utf-8") as f:
+        csv_data=csv.reader(f)
+        count=0
+        for row in csv_data:
+            if len(row) > 0:
+                
+                    file=open(student_id+".txt","a")
+                    i=1
+                    
+                    for i in range(1,6,1):
+                        y=int(row[i])
+                        count=y+count
+        if((count/5)<=40):
+            file.write("Sorry You are fail")
+        file.write("You are pass")            
+ 
+def creat_report_card(student_id):
+    global student_fields
+    global student_subject_database
+    global student_database
+    global student_subject
     with open(student_subject_database, "r", encoding="utf-8") as f:
         csv_data=csv.reader(f)
         for row in csv_data:
@@ -284,7 +307,7 @@ while True:
         add_number()
        
     elif choice=='5':
-       creat_report_card()
+       number_report()
     else:
         break    
 

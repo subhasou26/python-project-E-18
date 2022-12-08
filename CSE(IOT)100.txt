@@ -1,6 +1,7 @@
 marks     Gread Persentage 
-97          A      97%
 90          A      90%
 92          A      92%
+97          A      97%
 90          A      90%
 82          B      82%
+You are pass

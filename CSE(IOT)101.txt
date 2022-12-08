@@ -1,0 +1,7 @@
+marks     Gread Persentage 
+80          B      80%
+90          A      90%
+100          A      100%
+92          A      92%
+80          B      80%
+You are pass

@@ -1,0 +1,7 @@
+marks     Gread Persentage 
+66          D      66%
+55          E      55%
+44          F      44%
+99          A      99%
+88          B      88%
+You are pass
