@@ -1,7 +1,6 @@
 import csv
 student_fields = ['student_id', 'name', 'Class_roll_no', 'Batch_name']
-student_subject = [student_fields[0], 'bengali',
-                   'english', 'math', 'physics', 'chemistry']
+student_subject = [student_fields[0], 'bengali','english', 'math', 'physics', 'chemistry']
 
 student_database = 'students.csv'
 student_subject_database = 'marks.csv'
