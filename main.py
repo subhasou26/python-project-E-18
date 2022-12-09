@@ -1,4 +1,6 @@
 import csv
+from matplotlib import pyplot as plt
+import numpy as np
 student_dict={}
 student_fields = ['student_id', 'name', 'Class_roll_no', 'Batch_name']
 student_subject = [student_fields[0], 'bengali','english', 'math', 'physics', 'chemistry']
@@ -88,11 +90,7 @@ def creat_report_card(student_id):
         else:
             print("student_id No. not found in our database")
             input("Press any key to continue")
-            # file=open("report_card.txt","w")
-            # file.write(row)
-
-        # file=open("Report_card.txt","w")
-         # file.write()
+       
 
 
 ''' student_found = False
@@ -132,14 +130,33 @@ def add_number():
     #global student_database
     global student_subject
     global student_subject_database
-
+    student_id = input("Enter student_id no. to add Number: ")
+    student_found = False
     student_data = []
-    for field in student_subject:
-        value = input("Enter " + field + ":")
-        student_data.append(value)
-    with open(student_subject_database, "a", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerows([student_data])
+    with open(student_database, "r", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        counter = 0
+        for row in reader:
+            if len(row) > 0:
+                if student_id != row[0]:
+                    
+                    counter += 1
+                else:
+                    student_found = True
+
+    if student_found is True:
+    
+        for field in student_subject:
+            value = input("Enter " + field + ":")
+            student_data.append(value)
+        with open(student_subject_database, "a", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerows([student_data])
+    else:
+        print("student_id No. not found in our database")
+
+    input("Press any key to continue")
+        
 
 
 def delete_student_number():
@@ -155,7 +172,7 @@ def delete_student_number():
         for row in reader:
             if len(row) > 0:
                 if student_id != row[0]:
-                    updated_data.append(row)
+                    
                     counter += 1
                 else:
                     student_found = True
@@ -269,6 +286,8 @@ def update_student():
         print("student_id No. not found in our database")
 
     input("Press any key to continue")
+
+
 def creat_course():
     global course_fields
     global student_dict
@@ -287,7 +306,8 @@ def creat_course():
         for line in csv_data:
             if len(line) > 0: 
                 marks=input("Enter marks for Student Id- "+line[0]+" ")
-                marks_list.append(marks)
+                int_marks=int(marks)
+                marks_list.append(int_marks)
                 student_id.append(line[0])
         for i in range(len(student_id)):
             
@@ -301,7 +321,19 @@ def creat_course():
     with open(course_database, "a", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerows([full_list])
-    
+
+def histogram():
+    a = np.array([22, 87, 5, 43, 56,
+              73, 55, 54, 11,
+              20, 51, 5, 79, 31,
+              27])
+ 
+    # Creating histogram
+    fig, ax = plt.subplots(figsize =(10, 7))
+    ax.hist(a, bins = [0, 25, 50, 75, 100])
+ 
+# Show plot
+    plt.show()    
 
 
 def delete_student():
@@ -353,6 +385,8 @@ while True:
         number_report()
     elif choice == '6':
         creat_course()
+    elif choice == '7':
+        histogram()
     else:
         break
 
