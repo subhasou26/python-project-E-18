@@ -1,9 +1,11 @@
 import csv
+student_dict={}
 student_fields = ['student_id', 'name', 'Class_roll_no', 'Batch_name']
 student_subject = [student_fields[0], 'bengali','english', 'math', 'physics', 'chemistry']
-
+course_fields = ['course_id', 'course_name']
 student_database = 'students.csv'
 student_subject_database = 'marks.csv'
+course_database='course.csv'
 
 
 def number_report():
@@ -37,7 +39,7 @@ def total_number(student_id):
                         y = int(row[i])
                         count = y+count
                     persentage = str(count/5)
-        file.write("Your over all persentage is "+persentage+"\n")
+        file.write("Your over all persentage is "+persentage+"%"+"\n")
         if ((count/5) <= 40):
             file.write("Sorry You are fail")
         else:    
@@ -119,6 +121,7 @@ def display_menu():
     print("3. Delete Student")
     print("4. Add Number")
     print("5. Report Card")
+    print("6. Creat Course")
 
 
 def add_number():
@@ -266,6 +269,39 @@ def update_student():
         print("student_id No. not found in our database")
 
     input("Press any key to continue")
+def creat_course():
+    global course_fields
+    global student_dict
+    print("-------------------------")
+    print("Add New Course")
+    print("-------------------------")
+    
+    course_data = []
+    student_id=[]
+    marks_list=[]
+    for field in course_fields:
+        value = input("Enter " + field + ":")
+        course_data.append(value)
+    with open(student_subject_database, "r", encoding="utf-8") as f:
+        csv_data = csv.reader(f)
+        for line in csv_data:
+            if len(line) > 0: 
+                marks=input("Enter marks for Student Id- "+line[0]+" ")
+                marks_list.append(marks)
+                student_id.append(line[0])
+        for i in range(len(student_id)):
+            
+            student_dict[student_id[i]]=marks_list[i]
+                
+                
+        
+        print(student_dict) 
+    resultList = list(student_dict.items())           
+    full_list=course_data+resultList
+    with open(course_database, "a", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerows([full_list])
+    
 
 
 def delete_student():
@@ -315,6 +351,8 @@ while True:
 
     elif choice == '5':
         number_report()
+    elif choice == '6':
+        creat_course()
     else:
         break
 

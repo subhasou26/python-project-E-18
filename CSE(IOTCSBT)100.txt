@@ -4,5 +4,5 @@ marks     Gread Persentage
 32          F      32%
 21          F      21%
 22          F      22%
-Your over all persentage is 25.0
+Your over all persentage is 25.0%
 Sorry You are fail

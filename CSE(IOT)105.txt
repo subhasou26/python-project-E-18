@@ -1,8 +1,8 @@
 marks     Gread Persentage 
-60          D      60%
 90          A      90%
-99          A      99%
 66          D      66%
+22          F      22%
 55          E      55%
-Your over all persentage is 74.0%
+60          D      60%
+Your over all persentage is 58.6%
 You are pass
