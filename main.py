@@ -120,6 +120,7 @@ def display_menu():
     print("4. Add Number")
     print("5. Report Card")
     print("6. Creat Course")
+    print("7. histogram")
 
 
 def add_number():
